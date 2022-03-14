@@ -8,7 +8,7 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
   ],
   
   imports: [

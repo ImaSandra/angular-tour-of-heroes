@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HEROES } from 'src/app/mock-data/mock-heroes';
+import { HEROESMOCKDATA} from 'src/app/mock-data/mock-heroes';
 import { Hero } from 'src/app/models/hero';
 
 @Component({
@@ -9,11 +9,17 @@ import { Hero } from 'src/app/models/hero';
 })
 
 export class HeroesComponent implements OnInit {
-  heroes: Hero[] = HEROES;
+  heroes: Hero[] = HEROESMOCKDATA;
+  selectedHero?: Hero; //with ? it means that is null-able
+  
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onselect(pippo:Hero){
+   this.selectedHero = pippo;
   }
 
 }

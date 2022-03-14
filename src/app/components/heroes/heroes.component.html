@@ -23,6 +23,22 @@
  <h2>My Heroes</h2>
 <ul class="heroes">
     <li *ngFor="let hero of heroes">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <button [class.selected]="hero === selectedHero" type="button" (click)="onselect(hero)">
+    <span class="badge">{{hero.id}}</span> 
+    <span class="name"> {{hero.name}}</span>
+  </button>
   </li>
-</ul> <!-- This is called mocking of Datas -->
+</ul> <!-- This is called mocking of Data and it is not yet present in DOM. -->
+<!-- To make it seen in DOM, the ngIF has to be added. declaring null or undefined variables 
+can break the file causing an error -->
+
+<div *ngIf="selectedHero">
+
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div>id: {{selectedHero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
+
+</div> <!-- //Makes selected item present in the DOM -->
