@@ -1,44 +1,12 @@
-<!-- <h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div>
-    <label for="name">Hero name: </label>
-    <input id="name" [(ngModel)]="hero.name" placeholder="name">
-  </div>
--->
+<h2>My Heroes</h2>
 
- <!-- 
-     //one way binding technique 
- <div>
-    <label for="name">Hero name: </label>
-    <input id="name" value="{{hero.name}}" placeholder="name">
-  </div> 
- -->
-
-<!-- 
-  <div *ngFor = "let value of values">
- <h1> Value: {{value}} </h1>
-  </div>
- -->
-
- <h2>My Heroes</h2>
 <ul class="heroes">
-    <li *ngFor="let hero of heroes">
-      <button [class.selected]="hero === selectedHero" type="button" (click)="onselect(hero)">
-    <span class="badge">{{hero.id}}</span> 
-    <span class="name"> {{hero.name}}</span>
-  </button>
+  <li *ngFor="let hero of heroes">
+    <button [class.selected]="hero === selectedHero" type="button" (click)="onselect(hero)">
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
   </li>
-</ul> <!-- This is called mocking of Data and it is not yet present in DOM. -->
-<!-- To make it seen in DOM, the ngIF has to be added. declaring null or undefined variables 
-can break the file causing an error -->
+</ul>
 
-<div *ngIf="selectedHero">
-
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div>id: {{selectedHero.id}}</div>
-  <div>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
-  </div>
-
-</div> <!-- //Makes selected item present in the DOM -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
